@@ -1,0 +1,98 @@
+BoundedContext ProductCatalogManagementContext implements ProductsCalatogDomain
+BoundedContext CustomerManagementContext implements CustomerManagementDomain
+BoundedContext OrderManagementContext implements OrderManagementDomain
+BoundedContext InventoryManagementContext implements InventoryManagementCDomain
+BoundedContext PaymentManagementContext implements PaymentManagementDomain
+BoundedContext ShipingManagementContext implements ShipingManagementDomain
+BoundedContext SecurityManagementContext implements SecurityManagementDomain
+
+ContextMap Prueba{
+    type SYSTEM_LANDSCAPE
+    state TO_BE
+
+    contains ProductCatalogManagementContext, CustomerManagementContext, OrderManagementContext, InventoryManagementContext, PaymentManagementContext, ShipingManagementContext, SecurityManagementContext
+
+    ProductCatalogManagementContext Partnership OrderManagementContext
+    ProductCatalogManagementContext Customer-Supplier CustomerManagementContext
+    ProductCatalogManagementContext Shared-Kernel InventoryManagementContext
+    CustomerManagementContext [D, ACL] <- [U, OHS, PL] SecurityManagementContext
+    OrderManagementContext Customer-Supplier PaymentManagementContext
+    OrderManagementContext Customer-Supplier ShipingManagementContext
+    SecurityManagementContext [U, OHS] -> [D, ACL] CustomerManagementContext
+    InventoryManagementContext [D, CF] <- [U, OHS, PL] ShipingManagementContext
+}
+
+
+Domain Prueba{
+
+    Subdomain ProductsCalatogDomain{
+        type CORE_DOMAIN
+    }
+    Subdomain CustomerManagementDomain{
+        type SUPPORTING_DOMAIN
+    } 
+    Subdomain OrderManagementDomain{
+        type = SUPPORTING_DOMAIN
+    } 
+    Subdomain InventoryManagementCDomain{
+        type = GENERIC_SUBDOMAIN
+    } 
+    Subdomain PaymentManagementDomain{
+        type = GENERIC_SUBDOMAIN
+    }
+     Subdomain ShipingManagementDomain{
+        type = SUPPORTING_DOMAIN
+    } 
+    Subdomain SecurityManagementDomain{
+        type = SUPPORTING_DOMAIN
+    }
+}
+BoundedContext ProductCatalogManagementContext implements ProductsCalatogDomain
+BoundedContext CustomerManagementContext implements CustomerManagementDomain
+BoundedContext OrderManagementContext implements OrderManagementDomain
+BoundedContext InventoryManagementContext implements InventoryManagementCDomain
+BoundedContext PaymentManagementContext implements PaymentManagementDomain
+BoundedContext ShipingManagementContext implements ShipingManagementDomain
+BoundedContext SecurityManagementContext implements SecurityManagementDomain
+
+ContextMap Prueba{
+    type SYSTEM_LANDSCAPE
+    state TO_BE
+
+    contains ProductCatalogManagementContext, CustomerManagementContext, OrderManagementContext, InventoryManagementContext, PaymentManagementContext, ShipingManagementContext, SecurityManagementContext
+
+    ProductCatalogManagementContext Partnership OrderManagementContext
+    ProductCatalogManagementContext Customer-Supplier CustomerManagementContext
+    ProductCatalogManagementContext Shared-Kernel InventoryManagementContext
+    CustomerManagementContext [D, ACL] <- [U, OHS, PL] SecurityManagementContext
+    OrderManagementContext Customer-Supplier PaymentManagementContext
+    OrderManagementContext Customer-Supplier ShipingManagementContext
+    SecurityManagementContext [U, OHS] -> [D, ACL] CustomerManagementContext
+    InventoryManagementContext [D, CF] <- [U, OHS, PL] ShipingManagementContext
+}
+
+
+Domain Prueba{
+
+    Subdomain ProductsCalatogDomain{
+        type CORE_DOMAIN
+    }
+    Subdomain CustomerManagementDomain{
+        type SUPPORTING_DOMAIN
+    } 
+    Subdomain OrderManagementDomain{
+        type = SUPPORTING_DOMAIN
+    } 
+    Subdomain InventoryManagementCDomain{
+        type = GENERIC_SUBDOMAIN
+    } 
+    Subdomain PaymentManagementDomain{
+        type = GENERIC_SUBDOMAIN
+    }
+     Subdomain ShipingManagementDomain{
+        type = SUPPORTING_DOMAIN
+    } 
+    Subdomain SecurityManagementDomain{
+        type = SUPPORTING_DOMAIN
+    }
+}
